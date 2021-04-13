@@ -4,6 +4,8 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
+import androidx.viewpager.widget.ViewPager
+import com.google.android.material.tabs.TabLayout
 import retrofit2.Call
 import retrofit2.Response
 import javax.security.auth.callback.Callback
@@ -13,23 +15,13 @@ class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
-        val recyclerView = findViewById<RecyclerView>(R.id.usersRecyclerView)
-        recyclerView.layoutManager = LinearLayoutManager(this, LinearLayoutManager.VERTICAL, false)
-        val service: UsersAPI = UserNetwork.retrofit
-        service.getUsers().enqueue(object : Callback,
-            retrofit2.Callback<List<UserModel>> {
-            override fun onResponse(
-                call: Call<List<UserModel>>,
-                response: Response<List<UserModel>>
-            ) {
-                var list: List<UserModel>? = response.body()
-                recyclerView.adapter = list?.let { UsersAdapter(it) }
-            }
+        val tabLayout  = findViewById<TabLayout>(R.id.tabLayout)
+        val viewPager = findViewById<ViewPager>(R.id.viewPager)
+        tabLayout.addTab(tabLayout.newTab().setText("GitHub Users"))
+        tabLayout.addTab(tabLayout.newTab().setText("Anime List"))
+        tabLayout.setupWithViewPager(viewPager)
 
-            override fun onFailure(call: Call<List<UserModel>>, t: Throwable) {
-            }
 
-        })
 
 
     }

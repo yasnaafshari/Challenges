@@ -15,3 +15,14 @@ object UserNetwork {
             .create(UsersAPI::class.java)
     }
 }
+object AnimeNetwork {
+    private val client = OkHttpClient.Builder().build()
+    val retrofit by lazy {
+        Retrofit.Builder()
+            .baseUrl("https://api.jikan.moe/v3/")
+            .addConverterFactory(GsonConverterFactory.create())
+            .client(client)
+            .build()
+            .create(UsersAPI::class.java)
+    }
+}
