@@ -19,7 +19,7 @@ object AnimeNetwork {
     private val client = OkHttpClient.Builder().build()
     val retrofit by lazy {
         Retrofit.Builder()
-            .baseUrl("https://api.jikan.moe/v3/")
+            .baseUrl("https://api.jikan.moe")
             .addConverterFactory(GsonConverterFactory.create())
             .client(client)
             .build()
