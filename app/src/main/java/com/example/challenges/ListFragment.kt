@@ -49,7 +49,7 @@ class ListFragment(var position: Int) : Fragment() {
                 override fun onResponse(call: Call<Anime>, response: Response<Anime>) {
                     var anime: Anime? = response.body()
                     var list: List<AnimeModel>? = anime?.top
-                    recyclerView.adapter = list?.let { AnimeAdapter(it) }
+                    recyclerView.adapter = list?.let { ListAdapter(it) }
                 }
 
                 override fun onFailure(call: Call<Anime>, t: Throwable) {

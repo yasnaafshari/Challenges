@@ -7,7 +7,7 @@
     android:layout_margin="16dp">
 
     <TextView
-        android:id="@+id/userName"
+        android:id="@+id/firstText"
         android:textColor="@color/teal_700"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -16,11 +16,11 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
-        android:id="@+id/userType"
+        android:id="@+id/secondText"
         android:textColor="@color/teal_700"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/userName" />
+        app:layout_constraintTop_toBottomOf="@id/firstText" />
 </androidx.constraintlayout.widget.ConstraintLayout>
